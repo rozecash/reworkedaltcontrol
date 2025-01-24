@@ -1,12 +1,23 @@
 local Testing = false
--- Cmds
-if table.find(getgenv().Alts,game.Players.LocalPlayer.UserId) then
-	getgenv().PointInTable = table.find(getgenv().Alts,game.Players.LocalPlayer.UserId)
-else
-	return
+
+local player = game.Players.LocalPlayer
+while not player do
+    wait(0.1)
+    player = game.Players.LocalPlayer
 end
-if game.Players.LocalPlayer.Name == getgenv().HostUser or getgenv().Executed then
-	return
+
+while not table.find(getgenv().Alts, player.UserId) do
+    wait(0.1)
+end
+
+if table.find(getgenv().Alts, player.UserId) then
+    getgenv().PointInTable = table.find(getgenv().Alts, player.UserId)
+else
+    return
+end
+
+if player.Name == getgenv().HostUser or getgenv().Executed then
+    return
 end
 UserSettings().GameSettings.MasterVolume = 0
 local Crashed = false
