@@ -205,7 +205,7 @@ end
 KillAnimations()
 
 -- F. FPS Unlocker
-pcall(function() setfpscap(999) end)
+pcall(function() setfpscap(10) end)
 
 -- G. Material Override
 pcall(function()
